@@ -26,7 +26,7 @@ public class PaintPanel extends JPanel implements ActionListener {
     public PaintPanel() {
         setSize(800,600);
         //tick/second
-        Timer clock = new Timer(200,this);
+        Timer clock = new Timer(100,this);
         clock.start();
     }
 
@@ -68,7 +68,7 @@ public class PaintPanel extends JPanel implements ActionListener {
         g2d.fillRect(0,0,800,50);
 
         if(leadPoint.getY()>trailPoint.getY())g.setColor(Color.RED);
-        if(leadPoint.getY()<trailPoint.getY())g.setColor(new Color(0,200,30));
+        if(leadPoint.getY()<trailPoint.getY())g.setColor(new Color(8,200, 133));
 
         g2d.drawLine(leadPoint.getX(), leadPoint.getY(), trailPoint.getX(), trailPoint.getY());
         g2d.setColor(Color.WHITE);
