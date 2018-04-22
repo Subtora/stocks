@@ -24,16 +24,26 @@ public class PaintPanel extends JPanel implements ActionListener {
     public PaintPanel() {
         setSize(800,600);
         //tick/second
-        Timer clock = new Timer(50,this);
+        Timer clock = new Timer(100,this);
         clock.start();
     }
 
     public void buy() {
-        System.out.println("buying");
+
+        if(bal != 0){
+            coinNum += Math.round((bal/cost)*100.0)/100.0;
+            System.out.println("buying: "+coinNum+" XRP for "+bal);
+            bal = 0;
+        }
     }
 
     public void sell() {
-        System.out.println("selling");
+
+        if(bal == 0){
+            bal += Math.round((coinNum * cost)*100.0)/100.0;
+            System.out.println("Sold: "+coinNum+" for "+ bal);
+            coinNum = 0;
+        }
     }
 
     public void paintComponent(Graphics g){
@@ -93,7 +103,7 @@ public class PaintPanel extends JPanel implements ActionListener {
         int n = 5;
         //allow continuation of graph instead of reset
         var += (resetNum*800);
-        double solution = 100*sin(.02*var)+bottom/2;
+        double solution = 75*sin(.02*var)+bottom/2;
 
         return solution-(var%(getRandInt()))+(var%(100))-(var%(getRandInt()));
     }
