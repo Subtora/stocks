@@ -21,10 +21,12 @@ public class PaintPanel extends JPanel implements ActionListener {
     private int max = 30;
     private int min = 10;
 
+
+
     public PaintPanel() {
         setSize(800,600);
         //tick/second
-        Timer clock = new Timer(100,this);
+        Timer clock = new Timer(200,this);
         clock.start();
     }
 
@@ -50,6 +52,7 @@ public class PaintPanel extends JPanel implements ActionListener {
         //paint occurs when the method repaint() is called (see actionPerformed method )
         Graphics2D g2d = (Graphics2D) g;
 
+
         if(leadPoint.getX() > 800)
         {
             super.paintComponent(g2d);
@@ -57,15 +60,17 @@ public class PaintPanel extends JPanel implements ActionListener {
             trailPoint = new point(-5,bottom/2);
 
             resetNum++;
-        }
+        }else if(leadPoint.getX() < 20 || leadPoint.getX() > 780)super.paintComponent(g2d);
 
         //set bull/bear color
+
+        g2d.setColor(new Color(47,49,49));
+        g2d.fillRect(0,0,800,50);
+
         if(leadPoint.getY()>trailPoint.getY())g.setColor(Color.RED);
         if(leadPoint.getY()<trailPoint.getY())g.setColor(new Color(0,200,30));
 
         g2d.drawLine(leadPoint.getX(), leadPoint.getY(), trailPoint.getX(), trailPoint.getY());
-        g2d.setColor(new Color(47,49,49));
-        g2d.fillRect(-10,0,810,50);
         g2d.setColor(Color.WHITE);
 
         cost = 390-leadPoint.getY();
@@ -98,7 +103,6 @@ public class PaintPanel extends JPanel implements ActionListener {
     }
     //general methods
     public double sin(double var){return Math.sin(var);}
-    public double cos(double var){return Math.cos(var);}
     public double stoch(double var){
         int n = 5;
         //allow continuation of graph instead of reset
