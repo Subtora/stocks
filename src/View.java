@@ -35,7 +35,7 @@ public class View implements ActionListener {
 //        panel.setLayout(null);
 
         topPanel = new JPanel();
-        topPanel.setBackground(new Color(112, 128, 144));
+        topPanel.setBackground(new Color(47,49,49));
 
         centerPanel = new PaintPanel();
 
@@ -50,8 +50,8 @@ public class View implements ActionListener {
         buyBtn.addActionListener(this);
         sellBtn.addActionListener(this);
 
-        //addButtonStyle(buyBtn, 0, 0);
-        //addButtonStyle(sellBtn, 700, 135);
+        addButtonStyle(buyBtn, 0, 0);
+        addButtonStyle(sellBtn, 700, 135);
 
         topPanel.add(buyBtn);
         topPanel.add(sellBtn);
