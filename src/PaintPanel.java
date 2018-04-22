@@ -28,6 +28,14 @@ public class PaintPanel extends JPanel implements ActionListener {
         clock.start();
     }
 
+    public void buy() {
+        System.out.println("buying");
+    }
+
+    public void sell() {
+        System.out.println("selling");
+    }
+
     public void paintComponent(Graphics g){
         //paint occurs when the method repaint() is called (see actionPerformed method )
         Graphics2D g2d = (Graphics2D) g;

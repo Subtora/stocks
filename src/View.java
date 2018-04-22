@@ -7,7 +7,7 @@ import javax.swing.Timer;
 import javax.swing.JButton;
 import java.util.*;
 
-public class View {
+public class View implements ActionListener {
 
     private JFrame frame;
     private JPanel topPanel;
@@ -43,12 +43,12 @@ public class View {
         frame.add(centerPanel, BorderLayout.CENTER);
     }
 
-    public void setupButtons() {
+    private void setupButtons() {
         JButton buyBtn = new JButton("Buy");
         JButton sellBtn = new JButton("Sell");
 
-        // buyBtn.addActionListener(this);
-        // sellBtn.addActionListener(this);
+        buyBtn.addActionListener(this);
+        sellBtn.addActionListener(this);
 
         //addButtonStyle(buyBtn, 0, 0);
         //addButtonStyle(sellBtn, 700, 135);
@@ -57,12 +57,30 @@ public class View {
         topPanel.add(sellBtn);
     }
 
-    public void addButtonStyle(JButton button, int x, int y){
+    private void addButtonStyle(JButton button, int x, int y){
         button.setBounds(x, y, 60, 30);
         button.setBackground(Color.WHITE);
         button.setBorderPainted(false);
         button.setFocusPainted(false);
         button.setOpaque(true);
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        String command = event.getActionCommand();
+        if (command.equals("Sell")) {
+            sell();
+        }
+        if (command.equals("Buy")) {
+            buy();
+        }
+    }
+
+    private void buy() {
+        ((PaintPanel) centerPanel).buy();
+    }
+
+    private void sell() {
+        ((PaintPanel) centerPanel).sell();
     }
 
 }//end class MyPanel
