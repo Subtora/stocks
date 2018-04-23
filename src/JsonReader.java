@@ -34,9 +34,9 @@ public class JsonReader {
         }
     }
 
-    public static void main(String[] args) throws IOException, JSONException {
-        JSONObject json = readJsonFromUrl("https://api.binance.com/api/v1/ticker/price?symbol=ETHUSDT");
-        System.out.println(json.toString());
-        System.out.println(json.get("price"));
-    }
+//    public static void main(String[] args) throws IOException, JSONException {
+//        JSONObject json = readJsonFromUrl("https://api.binance.com/api/v1/ticker/price?symbol=ETHUSDT");
+//        System.out.println(json.toString());
+//        System.out.println(json.get("price"));
+//    }
 }

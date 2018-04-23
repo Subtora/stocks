@@ -12,7 +12,7 @@ public class PaintPanel extends JPanel implements ActionListener {
     private point costPos = new point(20, 30);
     private point balPos = new point(700,30);
 
-    private double cost = bottom/2;
+    private double cost = 0;
     private double bal = 20.0;
     private double coinNum = 0;
     private int resetNum = 0;
@@ -96,13 +96,13 @@ public class PaintPanel extends JPanel implements ActionListener {
 
     }//end updateVectors
 
-
     public void actionPerformed(ActionEvent arg0) {
         repaint();
         updateVectors();
     }
-    //general methods
+
     public double sin(double var){return Math.sin(var);}
+
     public double stoch(double var){
         int n = 5;
         //allow continuation of graph instead of reset
